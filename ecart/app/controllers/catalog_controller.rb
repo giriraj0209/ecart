@@ -1,7 +1,9 @@
 class CatalogController < ApplicationController
   def new
+  	
   end
   def create
+  	@product = Product.new
   end
 
   private

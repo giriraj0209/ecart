@@ -1,0 +1,6 @@
+#products.transitions-enabled
+  - @products.each do |product|
+    .box.panel.panel-default
+      = link_to (image_tag(product.image.url(:medium))), product
+      .panel-body
+        %h2= link_to product.title, product 

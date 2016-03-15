@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
   resources :catalog
-  root 'catalog#new'
+  resources :product
+  root 'product#index'
+  post 'products', to: 'product#create'
 end
