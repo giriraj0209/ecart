@@ -1,4 +1,28 @@
-%h1= @product.title
-%p= @product.spec
-%p= @product.price
-= image_tag @product.image.url(:medium)
+.container.show
+  %h1= @product.title
+
+  .row.vdivide
+    .col-md-6
+      = image_tag @product.image.url(:large), class: "img-responsive" 
+    .col-md-4
+      %h3 Product Specification
+      %p= @product.spec
+      %h3 Price
+      %p= @product.price
+      = text_field_tag :quantity, nil,placeholder: 'Enter the quantity', class: "form-control", style: "width:auto"
+      //= select_tag :shipping, options_for_select([['Shipping', 'A'], ['Store Pickup', 'B']], params[:shipping]), class: "form-control", style: "width:auto"
+      %br
+    .col-md-2
+      %br
+      %br
+      = select_tag :shipping, options_for_select([['Shipping', 'A'], ['Store Pickup', 'B']], params[:shipping]), class: "form-control", style: "width:auto"
+      %br
+      %h3 Total Price
+      %p= @product.price
+      %br
+      = button_to 'Add to cart', root_path, class: "btn btn-primary"
+
+//%h1= @product.title
+//%p= @product.spec
+//%p= @product.price
+//= image_tag @product.image.url(:medium)
